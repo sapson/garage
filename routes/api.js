@@ -5,6 +5,8 @@ var log = require('winston');
 
 var Lights = require('./lib/lights.js');
 
+var light = new Lights({});
+
 router.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With");
@@ -14,14 +16,20 @@ router.use(function(req, res, next) {
 
 router.route('/light/on')
     .get(function(req, res) {
-    	Lights.on();
+    	light.on();
         res.json({'light':'on'});
     });
 
 router.route('/light/off')
     .get(function(req, res) {
-    	Lights.off();
+    	light.off();
         res.json({'light':'off'});
+    });
+
+router.route('/light/timed')
+    .get(function(req, res) {
+    	light.timed();
+        res.json({'light':'timed'});
     });
 
 module.exports = router;
