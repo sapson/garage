@@ -16,19 +16,19 @@ router.use(function(req, res, next) {
 
 router.route('/light/on')
     .get(function(req, res) {
-    	light.on();
+    	light.on('api');
         res.json({'light':'on'});
     });
 
 router.route('/light/off')
     .get(function(req, res) {
-    	light.off();
+    	light.off('api');
         res.json({'light':'off'});
     });
 
 router.route('/light/timed')
     .get(function(req, res) {
-    	light.timed();
+    	light.timed(null,'api');
         res.json({'light':'timed'});
     });
 
