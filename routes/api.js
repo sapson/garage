@@ -32,4 +32,10 @@ router.route('/light/timed')
         res.json({'light':'timed'});
     });
 
+router.route('/light/status')
+    .get(function(req, res) {
+        var status = light.getStatus();
+        res.json({'light':status});
+    });
+
 module.exports = router;
