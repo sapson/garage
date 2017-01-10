@@ -67,7 +67,6 @@ Lights.prototype.button = button.watch(function(err, value) {
             Lights.prototype.off('switch');
             break;
         case 1:
-
             Lights.prototype.on('switch');
             break;
         case 2:
